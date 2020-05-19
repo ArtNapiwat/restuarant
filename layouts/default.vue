@@ -46,24 +46,10 @@ export default {
       items: [
         {
           icon: 'mdi-apps',
-          title: 'Welcome',
+          title: 'หน้าร้าน',
           to: '/'
         },
-        {
-          icon: 'mdi-apps',
-          title: 'Login',
-          to: '/login'
-        },
-        {
-          icon: 'mdi-apps',
-          title: 'signup',
-          to: '/signup'
-        },
-        {
-          icon: 'mdi-apps',
-          title: 'PayMent',
-          to: '/payment'
-        },
+
         {
           icon: 'mdi-chart-bubble',
           title: 'about',
@@ -72,7 +58,7 @@ export default {
         {
           icon: 'mdi-chart-bubble',
           title: 'dashboard',
-          to: '/dashboard'
+          to: '/admin/dashboard'
         }
       ],
       title: 'รายการอาหาร'

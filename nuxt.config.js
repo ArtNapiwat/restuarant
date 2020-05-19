@@ -30,10 +30,12 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: ['~/plugins/firebase.js'],
   /*
    ** Nuxt.js dev-modules
    */
+  // Router settings
+
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
     '@nuxtjs/eslint-module',
@@ -43,7 +45,8 @@ module.exports = {
   /*
    ** Nuxt.js modules
    */
-  modules: ['@nuxtjs/axios'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/auth'],
+
   /*
    ** vuetify module configuration
    ** https://github.com/nuxt-community/vuetify-module

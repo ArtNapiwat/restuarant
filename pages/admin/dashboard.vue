@@ -1,5 +1,7 @@
 <template>
   <div>
+    <NavTab />
+    <br />
     <v-card>
       <v-card-title>
         <v-btn depressed color="primary" @click="addItem">
@@ -59,10 +61,19 @@
 </template>
 
 <script>
+import * as firebase from 'firebase/app'
+import 'firebase/auth'
+import NavTab from '~/components/NavTab'
 import MojiForm from '~/components/forms/MojiForm'
-
 export default {
-  components: { MojiForm },
+  components: { MojiForm, NavTab },
+  created() {
+    const user = firebase.auth().currentUser
+    if (!user) {
+      this.$router.push('/login')
+    }
+  },
+
   data() {
     return {
       search: '',
@@ -75,7 +86,6 @@ export default {
       confirm: false,
       headers: [
         { text: 'ชื่อเมนู', value: 'name' },
-        { text: 'รูปภาพ', value: 'img' },
         { text: 'ราคา (บาท)', value: 'price' },
         { text: 'Actions', value: 'action', sortable: false }
       ],
@@ -102,6 +112,10 @@ export default {
       this.currentPK = item.id
       this.confirm = true
     },
+    test(desserts) {
+      console.log(this.desserts.price)
+    },
+
     async submitAdd(data) {
       try {
         const result = await this.$axios.$post('/api/moji', data)
