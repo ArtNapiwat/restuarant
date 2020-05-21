@@ -19,4 +19,5 @@ if (!firebase.apps.length) {
 
 // firebase.initializeApp(firebaseConfig)
 const dbref = firebase.database().ref('chartbox')
-export { dbref }
+const db = firebase.database().ref('confirmOrder')
+export { dbref, db }

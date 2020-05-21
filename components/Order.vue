@@ -39,7 +39,7 @@
             ดูสินค้าต่อ
           </v-btn>
 
-          <v-btn color="green darken-1" text @click="dialog = false">
+          <v-btn color="green darken-1" text @click="confirmOrder()">
             สั่งซื้อ
           </v-btn>
         </v-card-actions>
@@ -84,6 +84,10 @@ export default {
         console.log('total is :', total)
       })
       return total
+    },
+    confirmOrder() {
+      this.$router.replace('/Deliveryinformation')
+      console.log('confirmOrder')
     }
   }
 }

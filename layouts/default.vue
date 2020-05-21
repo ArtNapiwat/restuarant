@@ -59,6 +59,11 @@ export default {
           icon: 'mdi-chart-bubble',
           title: 'dashboard',
           to: '/admin/dashboard'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Delivery',
+          to: '/Deliveryinformation'
         }
       ],
       title: 'รายการอาหาร'

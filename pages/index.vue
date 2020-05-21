@@ -1,6 +1,7 @@
 <template>
   <div class="ma-auto">
     <h1>เมนูอาหาร</h1>
+    <v-btn @click="logout">Logout</v-btn>
     <Order />
 
     <div class="d-flex flex-wrap">
@@ -46,6 +47,8 @@
 </template>
 
 <script>
+import * as firebase from 'firebase/app'
+import 'firebase/auth'
 import 'firebase/database'
 import Order from '../components/Order'
 import { dbref } from '~/plugins/firebase.js'
@@ -60,6 +63,13 @@ export default {
   mounted() {
     this.fetchData()
   },
+  created() {
+    const user = firebase.auth().currentUser
+    if (!user) {
+      this.$router.push('/userLogin')
+    }
+  },
+
   methods: {
     async fetchData() {
       this.desserts = await this.$axios.$get('/api/moji')
@@ -72,6 +82,15 @@ export default {
       const createdAt = new Date()
       console.log(id, name, price)
       await dbref.push({ id, name, price, createdAt })
+    },
+    logout() {
+      firebase
+        .auth()
+        .signOut()
+        .then(() => {
+          this.$router.replace('/userLogin')
+          console.log(this.logout)
+        })
     }
   }
 }

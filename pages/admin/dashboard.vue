@@ -112,9 +112,6 @@ export default {
       this.currentPK = item.id
       this.confirm = true
     },
-    test(desserts) {
-      console.log(this.desserts.price)
-    },
 
     async submitAdd(data) {
       try {
